@@ -1,0 +1,61 @@
+#define rgb_red 11
+#define rgb_green 10
+#define rgb_blue 9
+#define switchPin 13
+
+int switchState = 0;
+
+void setup() {
+  pinMode(rgb_red, OUTPUT);
+  pinMode(rgb_green, OUTPUT);
+  pinMode(rgb_blue, OUTPUT);
+  pinMode(switchPin, INPUT);
+}
+
+void loop() {
+
+ // switchState = digitalRead(switchPin);
+
+ // if (switchState == HIGH) {
+  
+  for (int i=0; i<=255; i++)
+  {
+    analogWrite(rgb_red, i);
+    analogWrite(rgb_blue, 255-i);
+    delay(10);
+  }
+
+  delay(10);
+
+  for (int i=0; i<=255; i++)
+  {
+    analogWrite(rgb_green, i);
+    analogWrite(rgb_red, 255-i);
+    delay(10);
+  }
+
+delay(10);
+
+  for (int i=0; i<=255; i++)
+  {
+    analogWrite(rgb_blue, i);
+    analogWrite(rgb_green, 255-i);
+    delay(10);
+  }
+}
+/*
+delay(10);
+  }
+
+  else if (switchState == LOW) {
+    digitalWrite(rgb_red, HIGH);
+    digitalWrite(rgb_green, LOW);
+    digitalWrite(rgb_blue, LOW);
+    delay(1000);
+    digitalWrite(rgb_red, LOW);
+    digitalWrite(rgb_green, LOW);
+    digitalWrite(rgb_blue, LOW);
+    delay(1000);
+  }
+} 
+*/
